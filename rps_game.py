@@ -1,4 +1,19 @@
+
 import random
+
+
+def determine_winner(player, computer):
+    if player == computer:
+        return "tie"
+
+    if (
+        (player == "rock" and computer == "scissors")
+        or (player == "scissors" and computer == "paper")
+        or (player == "paper" and computer == "rock")
+    ):
+        return "player"
+
+    return "computer"
 
 
 def main():
@@ -18,6 +33,15 @@ def main():
 
     print("You selected:", player_choice)
     print("Computer selected:", computer_choice)
+
+    result = determine_winner(player_choice, computer_choice)
+
+    if result == "tie":
+        print("It's a tie!")
+    elif result == "player":
+        print("You win!")
+    else:
+        print("Computer wins!")
 
 
 if __name__ == "__main__":
