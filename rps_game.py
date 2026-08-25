@@ -1,4 +1,3 @@
-
 import random
 
 
@@ -16,16 +15,7 @@ def determine_winner(player, computer):
     return "computer"
 
 
-def main():
-    print("Hello!! This is Rock Paper Scissors Game. Enjoy it!!")
-    print()
-    print("Rules:")
-    print("Rock beats scissors.")
-    print("Scissors beats paper.")
-    print("Paper beats rock.")
-    print("If both players choose the same option, it is a tie.")
-    print()
-
+def play_round():
     player_choice = input("Enter rock, paper, or scissors: ")
 
     choices = ["rock", "paper", "scissors"]
@@ -37,11 +27,30 @@ def main():
     result = determine_winner(player_choice, computer_choice)
 
     if result == "tie":
-        print("It's a tie!")
+        print("It's a tie! Rematch!")
     elif result == "player":
         print("You win!")
     else:
         print("Computer wins!")
+
+    return result
+
+
+def main():
+    print("Hello!! This is Rock Paper Scissors Game. Enjoy it!!")
+    print()
+    print("Rules:")
+    print("Rock beats scissors.")
+    print("Scissors beats paper.")
+    print("Paper beats rock.")
+    print("If both players choose the same option, it is a tie.")
+    print()
+    
+    while True:
+        result = play_round()
+
+        if result != "tie":
+            break
 
 
 if __name__ == "__main__":
